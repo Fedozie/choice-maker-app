@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300;400;500;600;700;800&display=swap');
+
+:root{
+  --primary-blue: hsl(204, 100%, 50%);
+  --primary-green: hsl(145, 56%, 52%);
+  --primary-text-color: hsl(0, 0%, 96%);
+  --box-shadow: hsl(0, 0%, 22%);
+}
+
+html{
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
+*, *::before, *::after{
+  box-sizing: inherit;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Gothic A1', sans-serif;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.App{
+  height: 100vh;
+}
+
+.header{
+  background-color: var(--primary-blue);
+  color: var(--primary-text-color);
+  margin: 0 auto;
+  padding: .8rem;
+}
+
+.header h1{
+  margin: 0;
+}
+
+.main{
+  margin: 0 auto;
+  margin-top: 1rem;
+  width: 65vw;
+  padding: .5rem;
+}
+
+.main-title{
+  text-align: center;
+}
+
+.headings{
+  margin-bottom: .8rem;
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--primary-blue);
+}
+
+.form{
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+hr{
+  margin: 1rem 0;
+  background-color: black;
+  height: 2.5px;
+}
+
+.input-group{
+  width: 100%;
+}
+
+input[type=text]{
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.3rem;
+}
+
+.options input[type=text]{
+  margin-bottom: .5rem;
+}
+
+.buttons{
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.optionButton, .answerButton{
+  color: var(--primary-text-color);
+  font-weight: 700;
+  padding: .8rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.3rem;
+  transform: none;
+  transition: ease-in-out .4s;
+}
+
+.optionButton:hover, .answerButton:hover{
+  transform: translateY(-4px);
+  box-shadow: 0px 3px 10px var(--box-shadow);
+}
+
+.optionButton:active, .answerButton:active{
+  transform: translateY(0px);
+}
+
+.optionButton{
+  background: var(--primary-blue)
+}
+
+.answerButton{
+  background: var(--primary-green);
+}
+
+@media only screen and (max-width: 37.5rem){
+  .header h1{
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 33.125rem){
+  html{
+    font-size: 80%;
+  }
+
+  .main{
+    width: 70vw;
+  }
+
+  .optionButton, .answerButton{
+    font-size: 1.3rem;
+    padding: .6rem;
+  }
+}
+
+@media only screen and (max-width: 23.4375rem){
+  html{
+    font-size: 70%;
+  }
+
+  .main{
+    width: 75vw;
+  }
+
+  .main-title h2{
+    font-size: 2rem;
+  }
+
+  .main-title p{
+    font-size: 1.3rem;
+  }
+}
