@@ -2,6 +2,7 @@ import {useState} from "react";
 
 const Form = () => {
     const [num, setNum] = useState(4)
+    
 
     const toABC = (num) => {
         if(num < 1 || num > 26 || typeof num !== 'number'){
@@ -21,7 +22,6 @@ const Form = () => {
     const addOption = (e) => {
         e.preventDefault();
         setInputs([...inputs, {className: 'input-group', type: 'text', name:'option' + toABC(setNum(num+1)), placeholder:toABC(setNum(num+1)) + ':', id:setNum(num+1), mainId: 'option' + toABC(setNum(num+1))}]);
-        console.log(setNum(num+1))
     }
 
     const handleAnswer = (e) => {
@@ -29,7 +29,7 @@ const Form = () => {
     }
 
     return (
-        <form action="" className="form">
+        <form action="" className="form" onSubmit={handleAnswer}>
             <h3 className="headings">Questions</h3>
             <div className="input-group">
                 <input type="text" name="question" id="question" placeholder= "Q: Enter your question here"/>
@@ -49,6 +49,7 @@ const Form = () => {
                     <input type="submit" className="answerButton" value="Answer!"/>
                 </div>
             </div>
+            <div>{num}</div>
         </form>
     );
 }
