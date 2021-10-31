@@ -49,7 +49,6 @@ const Form = () => {
                     <input type="submit" className="answerButton" value="Answer!"/>
                 </div>
             </div>
-            <div>{num}</div>
         </form>
     );
 }
