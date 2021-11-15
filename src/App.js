@@ -1,5 +1,6 @@
 import Header from "./components/Header";
 import Main from "./components/Main";
+import Result from "./components/Result"
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 function App() {
@@ -11,8 +12,8 @@ function App() {
           <Route exact path="/">
             <Main/>
           </Route>
-          <Route>
-    
+          <Route path="./components/Result">
+            <Result/>
           </Route>
         </Switch>
       </div>
