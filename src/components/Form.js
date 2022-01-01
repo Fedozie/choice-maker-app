@@ -1,7 +1,7 @@
 import React from 'react';
 import {useState} from "react";
 import {useHistory} from "react-router-dom";
-import { NavLink } from "react-router-dom";
+import {Link } from "react-router-dom";
 
 const Form = () => {
     const [num, setNum] = useState(3);
@@ -67,10 +67,7 @@ const Form = () => {
                 }
                 <div className="buttons">
                     <button className="optionButton" onClick={addOption}>Add Another Option</button>
-                    <NavLink to = "/result">
-                        <input type="submit" className="answerButton" value="Answer!"/>
-                    </NavLink>
-                    
+                    <input type="submit" className="answerButton" value="Answer!"/>
                 </div>
             </div>
         </form>
