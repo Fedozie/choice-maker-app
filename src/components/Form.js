@@ -1,11 +1,11 @@
 import React from 'react';
 import {useState} from "react";
-import {useHistory} from "react-router-dom";
-import {Link } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 const Form = () => {
     const [num, setNum] = useState(3);
-    const history = useHistory();
+    const history = useNavigate();
     
     const toABC = (num) => {
         if(num < 1 || num > 26 || typeof num !== 'number'){
@@ -67,7 +67,9 @@ const Form = () => {
                 }
                 <div className="buttons">
                     <button className="optionButton" onClick={addOption}>Add Another Option</button>
-                    <input type="submit" className="answerButton" value="Answer!"/>
+                    <NavLink to = "/result">
+                        <input type="submit" className="answerButton" value="Answer!"/>
+                    </NavLink>
                 </div>
             </div>
         </form>
