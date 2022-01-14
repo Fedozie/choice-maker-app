@@ -1,4 +1,5 @@
 import React from 'react';
+import {NavLink} from "react-router-dom";
 
 const Result = () => {
     return (
@@ -10,8 +11,10 @@ const Result = () => {
                     <h1>Placeholder Text!</h1>
                 </div>
                 <div className = "result-buttons">
-                    <button>Ask Again ?</button>
-                    <button>Ask Another Random Question</button>          
+                    <button className = "re-ask-btn">Ask Again ?</button>
+                    <NavLink to = "/" className = "new-ask-btn">
+                        Ask Another Random Question      
+                    </NavLink>
                 </div>
             </div>
         </div>
