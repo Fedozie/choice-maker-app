@@ -2,6 +2,7 @@ import React from 'react';
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {NavLink} from "react-router-dom";
+import { BsPlusCircle } from "react-icons/bs";
 
 const Form = () => {
     const [num, setNum] = useState(3);
@@ -59,14 +60,14 @@ const Form = () => {
             <h3 className="headings">Options</h3>
             <div className="options">
                 {
-                    inputs.map((input, index) => (
+                    inputs.map((input) => (
                         <div className={input.className} key={input.id}>
                             <input type={input.type} name={input.name} id={input.mainId} placeholder={input.placeholder} value={options.name} onChange={(e) => setOptions(e.target.value)} />
                         </div>
                     ))
                 }
                 <div className="buttons">
-                    <button className="optionButton" onClick={addOption}>Add Another Option</button>
+                    <button className="optionButton" onClick={addOption}> <BsPlusCircle className = "plus-icon"/> Add Another Option</button>
                     <NavLink to = "/result">
                         <input type="submit" className="answerButton" value="Answer!"/>
                     </NavLink>
