@@ -1,6 +1,6 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
-import {TiArrowBack} from "react-icons/ti";
+import {BsArrowCounterclockwise} from "react-icons/bs";
 
 const Result = () => {
     return (
@@ -13,8 +13,8 @@ const Result = () => {
                 </div>
                 <div className = "result-buttons">
                     <button className = "re-ask-btn">Ask Again ?</button>
-                    <TiArrowBack className = "redo-icon"/>
                     <NavLink to = "/" className = "new-ask-btn">
+                        <BsArrowCounterclockwise className = "redo-icon"/>
                         Ask Another Random Question      
                     </NavLink>
                 </div>

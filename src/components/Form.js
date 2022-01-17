@@ -27,6 +27,8 @@ const Form = () => {
         if(num <= 25){
             setNum(num + 1);
             setInputs([...inputs, {className: 'input-group', type: 'text', name:'option' + toABC(num+1), placeholder:toABC(num+1) + ':', id:toABC(num+1), mainId: 'option' + toABC(num+1)}]);
+        }else{
+            alert("You have reached your limit, you can't add any more options.")
         }
     }
 
@@ -67,7 +69,10 @@ const Form = () => {
                     ))
                 }
                 <div className="buttons">
-                    <button className="optionButton" onClick={addOption}> <BsPlusCircle className = "plus-icon"/> Add Another Option</button>
+                    <button className="optionButton" onClick={addOption}> 
+                        <BsPlusCircle className = "plus-icon"/> 
+                        Add Another Option
+                    </button>
                     <NavLink to = "/result">
                         <input type="submit" className="answerButton" value="Answer!"/>
                     </NavLink>
