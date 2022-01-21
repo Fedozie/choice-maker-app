@@ -1,8 +1,7 @@
 import React from 'react';
-import {NavLink} from "react-router-dom";
 import {BsArrowCounterclockwise} from "react-icons/bs";
 
-const Result = () => {
+const Result = (props) => {
     return (
         <div className = "main">
             <h1>Choice Maker App</h1>
@@ -13,10 +12,10 @@ const Result = () => {
                 </div>
                 <div className = "result-buttons">
                     <button className = "re-ask-btn">Ask Again ?</button>
-                    <NavLink to = "/" className = "new-ask-btn">
+                    <button className = "new-ask-btn" onClick = {props.onReturn}end>
                         <BsArrowCounterclockwise className = "redo-icon"/>
                         Ask Another Random Question      
-                    </NavLink>
+                    </button>
                 </div>
             </div>
         </div>

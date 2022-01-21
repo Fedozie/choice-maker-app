@@ -1,12 +1,12 @@
 import React from 'react';
 import {useState} from "react";
-import {useNavigate} from "react-router-dom";
-import {NavLink} from "react-router-dom";
-import { BsPlusCircle } from "react-icons/bs";
+// import {useHistory} from "react-router-dom";
+// import {NavLink} from "react-router-dom";
+import {BsPlusCircle} from "react-icons/bs";
 
-const Form = () => {
+const Form = (props) => {
     const [num, setNum] = useState(3);
-    const history = useNavigate();
+    // const history = useHistory();
     
     const toABC = (num) => {
         if(num < 1 || num > 26 || typeof num !== 'number'){
@@ -32,28 +32,19 @@ const Form = () => {
         }
     }
 
-    const handleAnswer = (e) => {
-        e.preventDefault();
-        const userInputs = {question, options};
-
-        fetch('http://localhost:3000/userInputs', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(userInputs)
-        }).then(()=>{
-            history.push('./components/Result')
-        })
-    }
-
     const [question, setQuestion] = useState('');
     const [options, setOptions] = useState([{
         optionA: '',
         optionB: '',
         optionC: ''
     }]);
+
+    const submitHandler = (e) => {
+        e.preventDefault();
+    }
     
     return (
-        <form className="form" onSubmit={handleAnswer}>
+        <form className="form" onSubmit={submitHandler}>
             <h3 className="headings">Questions</h3>
             <div className="input-group">
                 <input type="text" name="question" id="question" placeholder="Q: Enter your question here" value={question} onChange={(e) => setQuestion(e.target.value)}/>
@@ -64,7 +55,7 @@ const Form = () => {
                 {
                     inputs.map((input) => (
                         <div className={input.className} key={input.id}>
-                            <input type={input.type} name={input.name} id={input.mainId} placeholder={input.placeholder} value={options.name} onChange={(e) => setOptions(e.target.value)} />
+                            <input type={input.type} name={input.name} id={input.mainId} placeholder={input.placeholder} value={options.value} onChange={(e) => setOptions(e.target.value)} />
                         </div>
                     ))
                 }
@@ -73,9 +64,7 @@ const Form = () => {
                         <BsPlusCircle className = "plus-icon"/> 
                         Add Another Option
                     </button>
-                    <NavLink to = "/result">
-                        <input type="submit" className="answerButton" value="Answer!"/>
-                    </NavLink>
+                    <input type="submit" className="answerButton" value="Answer!"/>
                 </div>
             </div>
         </form>

@@ -1,16 +1,22 @@
+import React, {useState} from 'react';
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Result from "./components/Result";
-import { Routes, Route} from 'react-router-dom';
 
 function App() {
+  const [display, setDisplay] = useState(true);
+  const startHandler = () => {
+    setDisplay(false)
+  }
+  const endHandlder = () => {
+    setDisplay(true);
+  }
+
   return (
     <div className="App">
       <Header/>
-      <Routes>
-        <Route path = "/" element = {<Main/>} exact/>
-        <Route path = "/result" element = {<Result/>} />
-      </Routes>
+      {display && <Main/>}
+      {!display && <Result onReturn = {endHandlder}/>}
     </div>
   );
 }
