@@ -1,7 +1,7 @@
 import React from 'react';
 import Form from './Form';
 
-const Main = () => {
+const Main = (props) => {
     return (
         <div className="main">
             <div className="main-title">

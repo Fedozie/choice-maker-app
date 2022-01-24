@@ -5,9 +5,11 @@ import Result from "./components/Result";
 
 function App() {
   const [display, setDisplay] = useState(true);
+
   const startHandler = () => {
-    setDisplay(false)
+    setDisplay(false);
   }
+  
   const endHandlder = () => {
     setDisplay(true);
   }

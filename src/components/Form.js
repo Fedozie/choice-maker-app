@@ -32,8 +32,8 @@ const Form = (props) => {
         }
     }
 
-    const [question, setQuestion] = useState('');
-    const [options, setOptions] = useState([{
+    const [enteredQuestion, setEnteredQuestion] = useState('');
+    const [enteredOptions, setEnteredOptions] = useState([{
         optionA: '',
         optionB: '',
         optionC: ''
@@ -41,13 +41,21 @@ const Form = (props) => {
 
     const submitHandler = (e) => {
         e.preventDefault();
+
+        const data = {
+            question: enteredQuestion,
+            options: enteredOptions.option
+        }
+
+        setEnteredQuestion('');
+        setEnteredOptions('');
     }
     
     return (
         <form className="form" onSubmit={submitHandler}>
             <h3 className="headings">Questions</h3>
             <div className="input-group">
-                <input type="text" name="question" id="question" placeholder="Q: Enter your question here" value={question} onChange={(e) => setQuestion(e.target.value)}/>
+                <input type="text" name="question" id="question" placeholder="Q: Enter your question here" value={enteredQuestion} onChange={(e) => setEnteredQuestion(e.target.value)}/>
             </div>
             <hr/>
             <h3 className="headings">Options</h3>
@@ -55,7 +63,7 @@ const Form = (props) => {
                 {
                     inputs.map((input) => (
                         <div className={input.className} key={input.id}>
-                            <input type={input.type} name={input.name} id={input.mainId} placeholder={input.placeholder} value={options.value} onChange={(e) => setOptions(e.target.value)} />
+                            <input type={input.type} name={input.name} id={input.mainId} placeholder={input.placeholder} value={enteredOptions.option} onChange={(e) => setEnteredOptions(e.target.value)} />
                         </div>
                     ))
                 }
