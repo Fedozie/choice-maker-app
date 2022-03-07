@@ -14,10 +14,15 @@ function App() {
     setDisplay(true);
   }
 
+  const submitHandler = (e) => {
+  e.preventDefault();
+  startHandler();
+}
+
   return (
     <div className="App">
       <Header/>
-      {display && <Main/>}
+      {display && <Main toResult = {submitHandler}/>}
       {!display && <Result onReturn = {endHandlder}/>}
     </div>
   );

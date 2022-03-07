@@ -1,12 +1,9 @@
 import React from 'react';
 import {useState} from "react";
-// import {useHistory} from "react-router-dom";
-// import {NavLink} from "react-router-dom";
 import {BsPlusCircle} from "react-icons/bs";
 
 const Form = (props) => {
     const [num, setNum] = useState(3);
-    // const history = useHistory();
     
     const toABC = (num) => {
         if(num < 1 || num > 26 || typeof num !== 'number'){
@@ -38,21 +35,9 @@ const Form = (props) => {
         optionB: '',
         optionC: ''
     }]);
-
-    const submitHandler = (e) => {
-        e.preventDefault();
-
-        const data = {
-            question: enteredQuestion,
-            options: enteredOptions.option
-        }
-
-        setEnteredQuestion('');
-        setEnteredOptions('');
-    }
     
     return (
-        <form className="form" onSubmit={submitHandler}>
+        <form className="form" onSubmit={props.onSubmit}>
             <h3 className="headings">Questions</h3>
             <div className="input-group">
                 <input type="text" name="question" id="question" placeholder="Q: Enter your question here" value={enteredQuestion} onChange={(e) => setEnteredQuestion(e.target.value)}/>

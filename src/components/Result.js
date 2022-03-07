@@ -12,7 +12,7 @@ const Result = (props) => {
                 </div>
                 <div className = "result-buttons">
                     <button className = "re-ask-btn">Ask Again ?</button>
-                    <button className = "new-ask-btn" onClick = {props.onReturn}end>
+                    <button className = "new-ask-btn" onClick = {props.onReturn}>
                         <BsArrowCounterclockwise className = "redo-icon"/>
                         Ask Another Random Question      
                     </button>
