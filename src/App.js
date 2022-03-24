@@ -15,15 +15,15 @@ function App() {
   }
 
   const submitHandler = (e) => {
-  e.preventDefault();
-  startHandler();
-}
+    e.preventDefault();
+    startHandler();
+  }
 
   return (
     <div className="App">
       <Header/>
       {display && <Main toResult = {submitHandler}/>}
-      {!display && <Result onReturn = {endHandlder}/>}
+      {!display && <Result toForm = {endHandlder}/>}
     </div>
   );
 }

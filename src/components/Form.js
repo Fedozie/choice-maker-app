@@ -2,7 +2,7 @@ import React from 'react';
 import {BsPlusCircle} from "react-icons/bs";
 
 const Form = (props) => {
-    
+
     
     return (
         <form className="form" onSubmit={props.onSubmit}>

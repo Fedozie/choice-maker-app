@@ -5,6 +5,7 @@ import Form from './Form';
 const Main = (props) => {
     const [num, setNum] = useState(3);
     
+    //Function to convert a number to its letter equivalent
     const toABC = (num) => {
         if(num < 1 || num > 26 || typeof num !== 'number'){
             return '-1'
@@ -13,12 +14,14 @@ const Main = (props) => {
         return String.fromCharCode(num + leveller)
     }
  
+    //Inputs for the options on the form
     const [inputs, setInputs] = useState([
         {className: 'input-group', type: 'text', name:'option' + toABC(1), placeholder:toABC(1) + ':', id: 1, mainId: 'option' + toABC(1)},
         {className: 'input-group', type: 'text', name:'option' + toABC(2), placeholder:toABC(2) + ':', id: 2, mainId: 'option' + toABC(2)},
         {className: 'input-group', type: 'text', name:'option' + toABC(3), placeholder:toABC(3) + ':', id: 3, mainId: 'option' + toABC(3)}
     ])
 
+    //Function to add a new option to the form
     const addOption = (e) => {
         e.preventDefault();
         if(num <= 25){
@@ -29,6 +32,7 @@ const Main = (props) => {
         }
     }
 
+    //Variables Declarations for the Question and Options
     const [enteredQuestion, setEnteredQuestion] = useState('');
     const [enteredOptions, setEnteredOptions] = useState([{
         optionA: '',
