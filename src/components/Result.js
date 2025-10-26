@@ -1,7 +1,14 @@
 import React from 'react';
 import {BsArrowCounterclockwise} from "react-icons/bs";
+import { useNavigate } from 'react-router-dom';
 
 const Result = (props) => {
+    const navigate = useNavigate();
+
+    const goBack = () => {
+        navigate(-1);
+    }
+
     return (
         <div className = "main">
             <h1>Choice Maker App</h1>
@@ -11,7 +18,7 @@ const Result = (props) => {
                     <h1>Placeholder Text!</h1>
                 </div>
                 <div className = "result-buttons">
-                    <button className = "re-ask-btn">Ask Again ?</button>
+                    <button className = "re-ask-btn" onClick={goBack}>Ask Again ?</button>
                     <button className = "new-ask-btn" onClick = {props.toForm}>
                         <BsArrowCounterclockwise className = "redo-icon"/>
                         Ask Another Random Question      

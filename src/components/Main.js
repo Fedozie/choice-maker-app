@@ -34,11 +34,10 @@ const Main = (props) => {
 
     //Variables Declarations for the Question and Options
     const [enteredQuestion, setEnteredQuestion] = useState('');
-    const [enteredOptions, setEnteredOptions] = useState([{
-        optionA: '',
-        optionB: '',
-        optionC: ''
-    }]);
+    const [enteredOptions, setEnteredOptions] = useState({});
+
+    
+    
 
     return (
         <div className="main">
@@ -47,7 +46,6 @@ const Main = (props) => {
                 <p>When the decision is too hard or too simple, randomize the answers with the Choice Maker App</p>
             </div>
             <Form 
-                onSubmit = {props.toResult}
                 inputs = {inputs}
                 setInputs = {setInputs}
                 addOption = {addOption}
