@@ -1,5 +1,5 @@
-import React, {useContext} from "react";
-import FormContext  from "../context/formContext";
+import React, { useContext } from "react";
+import FormContext from "../context/formContext";
 import { BsArrowCounterclockwise } from "react-icons/bs";
 import { useNavigate } from 'react-router-dom';
 
@@ -20,7 +20,7 @@ const Result = (props) => {
             <p>When the decision is too hard or too simple, randomize the answers with the Choice Maker App</p>
             <div className="result">
                 <div className="result-answers">
-                    <h1>{formData.question}</h1>
+                    <h1>{formData.question.includes("?") ? formData.question : `${formData.question}?`}</h1>
                     <h3>Your Randomized Answer is: {formData.answer}</h3>
                 </div>
                 <div className="result-buttons">

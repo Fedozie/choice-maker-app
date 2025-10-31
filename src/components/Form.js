@@ -1,12 +1,17 @@
-import React, { useContext } from 'react';
+import React, { useContext, } from 'react';
 import { BsPlusCircle } from "react-icons/bs";
 import { useNavigate } from 'react-router-dom';
 import FormContext from '../context/formContext';
 
 const Form = (props) => {
     const { formData, setFormData } = useContext(FormContext);
-
     const navigate = useNavigate();
+    const optionsArr = Object.values(props.enteredOptions);
+
+    const sessionData = {
+        question: formData.question,
+        options: optionsArr
+    }
 
     const generateRandomInt = () => {
         return Math.floor(Math.random() * Object.values(props.enteredOptions).length)
@@ -15,12 +20,13 @@ const Form = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const optionsArr = Object.values(props.enteredOptions);
         const randomNum = generateRandomInt();
         const selectedOption = optionsArr.find((_, index) => index === randomNum)
-        setFormData({
+        const updatedData = {
             ...formData, answer: selectedOption
-        })
+        }
+        setFormData(updatedData)
+        sessionStorage.setItem('formData', JSON.stringify(sessionData));
         navigate('/result');
     }
 
@@ -70,11 +76,11 @@ const Form = (props) => {
                         />
                         Add Another Option
                     </button>
-                    <input 
-                        type="submit" 
-                        className="answerButton" 
-                        value="Answer!" 
-                        disabled={Object.values(props.enteredOptions).length === 0 }
+                    <input
+                        type="submit"
+                        className="answerButton"
+                        value="Answer!"
+                        disabled={Object.values(props.enteredOptions).length === 0}
                     />
                 </div>
             </div>
