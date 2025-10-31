@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { BsPlusCircle } from "react-icons/bs";
+import { useNavigate } from 'react-router-dom';
+import FormContext from '../context/formContext';
 
 const Form = (props) => {
+    const { formData, setFormData } = useContext(FormContext);
+
+    const navigate = useNavigate();
 
     const generateRandomInt = () => {
         return Math.floor(Math.random() * Object.values(props.enteredOptions).length)
@@ -10,10 +15,13 @@ const Form = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const randomNum = generateRandomInt();
         const optionsArr = Object.values(props.enteredOptions);
+        const randomNum = generateRandomInt();
         const selectedOption = optionsArr.find((_, index) => index === randomNum)
-        console.log(selectedOption)
+        setFormData({
+            ...formData, answer: selectedOption
+        })
+        navigate('/result');
     }
 
     return (
@@ -25,8 +33,10 @@ const Form = (props) => {
                     name="question"
                     id="question"
                     placeholder="Q: Enter your question here"
-                    value={props.enteredQuestion}
-                    onChange={(e) => props.setEnteredQuestion(e.target.value)}
+                    value={formData.question}
+                    onChange={(e) => setFormData({
+                        ...formData, question: e.target.value
+                    })}
                 />
             </div>
             <hr />
@@ -53,12 +63,19 @@ const Form = (props) => {
                     <button
                         type='button'
                         className="optionButton"
-                        onClick={props.addOption}>
+                        onClick={props.addOption}
+                        disabled={Object.values(props.enteredOptions).length >= 26}
+                    >
                         <BsPlusCircle className="plus-icon"
                         />
                         Add Another Option
                     </button>
-                    <input type="submit" className="answerButton" value="Answer!" />
+                    <input 
+                        type="submit" 
+                        className="answerButton" 
+                        value="Answer!" 
+                        disabled={Object.values(props.enteredOptions).length === 0 }
+                    />
                 </div>
             </div>
         </form>
