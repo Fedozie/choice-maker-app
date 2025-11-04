@@ -4,13 +4,18 @@ import { BsArrowCounterclockwise } from "react-icons/bs";
 import { useNavigate } from 'react-router-dom';
 
 
-const Result = (props) => {
+const Result = () => {
     const { formData } = useContext(FormContext);
 
     const navigate = useNavigate();
 
     const goBack = () => {
         navigate(-1);
+    }
+
+    const clearData = () => {
+        navigate(-1);
+        sessionStorage.clear();
     }
 
     return (
@@ -25,15 +30,13 @@ const Result = (props) => {
                 </div>
                 <div className="result-buttons">
                     <button className="re-ask-btn" onClick={goBack}>Ask Again ?</button>
-                    <button className="new-ask-btn" onClick={props.toForm}>
-                        <BsArrowCounterclockwise className="redo-icon" />
+                    <button className="new-ask-btn" onClick={clearData}>
+                        <BsArrowCounterclockwise className="redo-icon"/>
                         Ask Another Random Question
                     </button>
                 </div>
             </div>
         </div>
-
-
     );
 }
 
