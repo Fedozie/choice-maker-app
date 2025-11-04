@@ -91,6 +91,7 @@ input[type=text]{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 5rem;
 }
 
 .optionButton, .answerButton{
@@ -122,8 +123,22 @@ input[type=text]{
   width: 17rem;
 }
 
+.optionButton:disabled{
+  background-color: hsl(204, 100%, 80%);
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
 .answerButton{
   background: var(--primary-green);
+}
+
+.answerButton:disabled{
+  background-color: hsl(145, 56%, 80%);
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
 }
 
 .plus-icon{
@@ -137,8 +152,14 @@ input[type=text]{
   margin-top: 2.5rem;
 }
 
-.result-answers{
-  
+.result-answers h1{
+  font-weight: 800;
+  font-size: 2.5rem !important;
+}
+
+.result-answers h3{
+  font-weight: 600;
+  font-size: 1.5rem !important;
 }
 
 .result-buttons{
