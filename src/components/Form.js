@@ -80,7 +80,7 @@ const Form = (props) => {
                         type="submit"
                         className="answerButton"
                         value="Answer!"
-                        disabled={Object.values(props.enteredOptions).length === 0}
+                        disabled={Object.values(props.enteredOptions).filter((val) => val.trim() !== "").length < 2 || formData.question === ""}
                     />
                 </div>
             </div>
