@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useState } from "react";
 import Form from './Form';
+import SassyEmoji from '../assets/sassy-emoji.png';
 
 const Main = (props) => {
     const [num, setNum] = useState(2);
@@ -77,7 +78,10 @@ const Main = (props) => {
         <div className="main">
             <div className="main-title">
                 <h2>Choice Maker App</h2>
-                <p>When the decision is too hard or too simple, randomize the answers with the Choice Maker App</p>
+                <div>
+                    <p>Make decision making fun again </p>
+                    <img src={SassyEmoji} alt="Sassy emoji" loading='lazy'/>
+                </div>
             </div>
             <Form
                 inputs={inputs}

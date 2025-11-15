@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 const Result = () => {
-    const { formData } = useContext(FormContext);
+    const { formData, setFormData } = useContext(FormContext);
 
     const navigate = useNavigate();
 
@@ -16,6 +16,12 @@ const Result = () => {
     const clearData = () => {
         navigate(-1);
         sessionStorage.clear();
+        const clearedFormData = {
+            question: '',
+            answer: ''
+        }
+        setFormData(clearedFormData)
+        
     }
 
     return (
