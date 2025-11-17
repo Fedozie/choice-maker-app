@@ -32,7 +32,7 @@ const Form = (props) => {
 
     return (
         <form className="form" onSubmit={handleSubmit}>
-            <h3 className="headings">Questions</h3>
+            <h3 className="headings">Question</h3>
             <div className="input-group">
                 <input
                     type="text"
